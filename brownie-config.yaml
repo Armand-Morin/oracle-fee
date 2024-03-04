@@ -14,6 +14,7 @@ networks:
     accounts:
       - ${PRIVATE_KEY}
   goerli:
+    link_token: '0x326C977E6efc84E512bB9C30f76E30c160eD06FB'
     url: https://goerli.infura.io/v3/${WEB3_INFURA_PROJECT_ID}  # Replace with your RPC URL for Goerli
     accounts:
       - ${PRIVATE_KEY}
