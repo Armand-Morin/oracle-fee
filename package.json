@@ -1,0 +1,16 @@
+{
+  "name": "oracle-fee",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Armand-Morin/oracle-fee.git",
+  "author": "Armand Morin <72650161+Armand-Morin@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "chai": "^5.1.0",
+    "ethereum-waffle": "^4.0.10",
+    "ethers": "^6.11.1",
+    "hardhat": "^2.21.0"
+  }
+}
