@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-// import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
-import "smartcontractkit/chainlink-brownie-contracts@1.1.1/contracts/src/v0.8/ChainlinkClient.sol";
+import "@smartcontractkit/chainlink-brownie-contracts@1.1.1/contracts/src/v0.8/ChainlinkClient.sol";
+// import "smartcontractkit/chainlink-brownie-contracts@1.1.1/contracts/src/v0.8/ChainlinkClient.sol";
 
 
 contract FeeRequester is ChainlinkClient {
