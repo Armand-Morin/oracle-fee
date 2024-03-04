@@ -1,28 +1,33 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
+// import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
+import "smartcontractkit/chainlink-brownie-contracts@1.1.1/contracts/src/v0.8/ChainlinkClient.sol";
+
 
 contract FeeRequester is ChainlinkClient {
     using Chainlink for Chainlink.Request;
 
-    // Chainlink parameters (set these to the appropriate values for your Chainlink node)
-    address private oracle = 0x123...; // Oracle Address obtained from Chainlink Market
-    bytes32 private jobId = "abc123..."; // Job ID for HTTP GET + JSON Parse
-    uint256 private fee = 0.1 * 10 ** 18; // Fee, often 0.1 LINK, but check the specific Oracle's requirement
+    // Replace with the actual Oracle address and Job ID from a Chainlink node that supports your request
+    address private oracle;
+    bytes32 private jobId;
+    uint256 private fee;
 
     // The fee returned from the API
     uint256 public returnedFee;
 
-    constructor() {
-        setPublicChainlinkToken();
+    constructor(address _oracle, bytes32 _jobId, uint256 _fee, address _linkToken) {
+        setChainlinkOracle(_oracle);
+        jobId = _jobId;
+        fee = _fee;
+        // Initialize the LinkToken
+        setChainlinkToken(_linkToken);
     }
 
     function requestFee() public {
         Chainlink.Request memory req = buildChainlinkRequest(jobId, address(this), this.fulfill.selector);
-        // Set the URL to your API endpoint
-        req.add("get", "http://localhost:5000/compute-fee");
-        // Set the path in the JSON response to find the fee
+        // Ensure your API is accessible publicly and replace the URL here
+        req.add("get", "http://your-public-api-url/compute-fee");
         req.add("path", "fee");
         sendChainlinkRequestTo(oracle, req, fee);
     }
