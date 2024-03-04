@@ -3,8 +3,13 @@ const hre = require("hardhat");
 async function main() {
   await hre.run('compile');
 
-  // Deploy the contract
-  const FeeRequester = await hre.ethers.getContractFactory("FeeRequester");
+  const provider = new hre.ethers.providers.JsonRpcProvider(process.env.HARDHAT_NETWORK_URL);
+
+  // Using the provider to deploy the contract
+  const FeeRequester = await hre.ethers.getContractFactory("FeeRequester", {
+    provider: provider,
+  });
+
   const oracleAddress = "0x6090149792dAAeE9D1D568c9f9a6F6B46AA29eFD";
   const jobId = "ca98366cc7314957b8c012c72f05aeeb";
   const fee = hre.ethers.utils.parseEther("0.1"); // Adjust based on the oracle fee
