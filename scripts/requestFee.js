@@ -18,7 +18,7 @@ async function main() {
   // This part is dependent on how your contract and oracle are set up
 }
 
-// npx hardhat run scripts/requestFee.js --network goerli
+// npx hardhat run scripts/requestFee.js
 
 
 main()
