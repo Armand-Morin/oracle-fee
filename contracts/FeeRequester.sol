@@ -27,7 +27,7 @@ contract FeeRequester is ChainlinkClient {
     function requestFee() public {
         Chainlink.Request memory req = buildChainlinkRequest(jobId, address(this), this.fulfill.selector);
         // Ensure your API is accessible publicly and replace the URL here
-        req.add("get", "http://your-public-api-url/compute-fee");
+        req.add("get", "https://5ea2-2001-5a8-4606-8e00-91be-5748-ca58-d382.ngrok-free.app/compute-fee");
         req.add("path", "fee");
         sendChainlinkRequestTo(oracle, req, fee);
     }
