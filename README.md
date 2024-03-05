@@ -1,12 +1,3 @@
-
-```sh
-npx hardhat run scripts/deploy.js --network <networkName>
-
-npx hardhat verify --network <networkName> sepolia <contractAddress> 0x5a9652ff0493D6fFa37F56F8278a8F5F22A3B551
-
-npx hardhat run scripts/requestFee.js
-```
-
 # Project Title
 
 ## Description
@@ -66,9 +57,22 @@ Run the following command to interact with the deployed contract using a predefi
 npx hardhat run scripts/requestFee.js --network <networkName>
 ```
 
-## Replace <networkName> with the network where your contract is deployed.
+Exposing Local Development Server with ngrok
+To expose your local Flask API for the smart contract to interact with, follow these steps:
 
-Additional Commands
+- Ensure your Flask API is running locally on port 5000.
+- Download and install ngrok.
+- Start ngrok to forward requests to your local server:
+```sh
+ngrok http http://127.0.0.1:5000
+```
+- Copy the forwarding URL provided by ngrok (e.g., https://<unique-id>.ngrok.io) and use it in your smart contract or API request script.
+- To test if your setup works, you can visit the ngrok URL in your browser or use a tool like curl:
+```sh
+https://<unique-id>.ngrok-free.app/compute-fee?amountUSD=1&price_diff=1&std=1
+```
+
+## Additional Commands
 Compiling Contracts:
 Compile your contracts using:
 
