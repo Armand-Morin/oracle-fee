@@ -10,6 +10,7 @@ module.exports = {
 
   etherscan: {
     apiKey: {
+      goerli: ETHERSCAN_API_KEY,
       sepolia: ETHERSCAN_API_KEY,
     },
   },

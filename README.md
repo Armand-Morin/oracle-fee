@@ -46,6 +46,11 @@ To deploy the `FeeRequester` contract to a network, use the following command, r
 ```sh
 npx hardhat run scripts/deploy.js --network <networkName>
 ```
+This command will:
+-  compile the contract
+-  deploy the contrqct on the network selected
+-  verify the contract with the code and the abi
+-  send 1 LINK to the contract to use the ChainLink Oracle
 
 ## Verifying the Contract on Etherscan
 After deploying, verify the contract on Etherscan by using the following command. Replace <networkName> with the network you deployed to, and <contractAddress> with the address of the deployed contract:
