@@ -1,9 +1,7 @@
-// scripts/requestFee.js
-
 const hre = require("hardhat");
 
 async function main() {
-  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"; // Replace with your contract's address
+  const contractAddress = "0x5a9652ff0493D6fFa37F56F8278a8F5F22A3B551"; // Replace with your contract's address
   const FeeRequester = await hre.ethers.getContractFactory("FeeRequester");
   const feeRequester = await FeeRequester.attach(contractAddress);
 
